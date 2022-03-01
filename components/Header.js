@@ -38,7 +38,7 @@ function Header() {
 		<div>
 			{/* quote */}
 			<div className="flex justify-evenly">
-				<p className="text-black text-2xl">"{quote}"</p>
+				<p className="text-white text-2xl">"{quote}"</p>
 				{/* button */}
 				<button onClick={updateQuote} className="text-white">
 					<svg
@@ -58,7 +58,7 @@ function Header() {
 				</button>
 			</div>
 			{/* person */}
-			<p className="text-black font-bold">{person}</p>
+			<p className="text-white font-bold">{person}</p>
 		</div>
 	);
 }

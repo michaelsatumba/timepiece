@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Header from '../components/Header';
+import Main from '../components/Main';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
 			<Header />
+			<Main />
 			{/* Main */}
 			{/* More */}
 		</div>
