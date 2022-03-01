@@ -17,7 +17,6 @@ export default function Home() {
 			<Main />
 			{/* Main */}
 			{/* More */}
-			<More />
 		</div>
 	);
 }

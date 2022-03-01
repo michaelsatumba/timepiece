@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import More from '../components/More';
 
 function Main() {
 	const [icon, setIcon] = useState(null);
@@ -7,6 +8,7 @@ function Main() {
 	const [greeting, setGreeting] = useState('');
 	const [city, setCity] = useState('');
 	// const [countryCode, setcountryCode] = useState('');
+	const [place, setPlace] = useState('');
 
 	const showTime = () => {
 		const date1 = new Date();
@@ -23,7 +25,7 @@ function Main() {
 		if (hours < 18 && hours > 0) {
 			// console.log('Good Morning');
 			setGreeting('GOOD MORNING');
-			setIcons(
+			setIcon(
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					className="h-6 w-6"
@@ -72,6 +74,7 @@ function Main() {
 					// status.textContent = `In ${data.city}, ${data.countryName}`;
 					// document.querySelector('.currentPlace').textContent = `${data.city}`;
 					setCity('In ' + data.city + ', ' + data.countryCode);
+					setPlace(data.city);
 				});
 		};
 
@@ -103,26 +106,29 @@ function Main() {
 		findMe();
 	}, []);
 	return (
-		<div className="mt-40 text-white space-y-2">
-			<div className="flex flex-row space-x-1">
-				{/* icon */}
-				<div>{icon}</div>
-				{/* good morning */}
-				<p className="tracking-widest">{greeting}</p>
-			</div>
-			<div className="flex space-y-20">
-				{/* time */}
-				<p className="text-9xl">
-					{hours}:<span>{minutes}</span>
-				</p>
+		<div>
+			<div className="mt-40 text-white space-y-2">
+				<div className="flex flex-row space-x-1">
+					{/* icon */}
+					<div>{icon}</div>
+					{/* good morning */}
+					<p className="tracking-widest">{greeting}</p>
+				</div>
+				<div className="flex space-y-20">
+					{/* time */}
+					<p className="text-9xl">
+						{hours}:<span>{minutes}</span>
+					</p>
 
-				{/* timezone */}
-				<p>BST</p>
+					{/* timezone */}
+					<p>BST</p>
+				</div>
+				<div>
+					{/* place */}
+					<p className="tracking-widest">{city}</p>
+				</div>
 			</div>
-			<div>
-				{/* place */}
-				<p className="tracking-widest">{city}</p>
-			</div>
+			<More place={place} />
 		</div>
 	);
 }
