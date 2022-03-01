@@ -6,7 +6,7 @@ function Main() {
 	const [minutes, setMinutes] = useState(null);
 	const [greeting, setGreeting] = useState('');
 	const [city, setCity] = useState('');
-	const [countryCode, setcountryCode] = useState('');
+	// const [countryCode, setcountryCode] = useState('');
 
 	const showTime = () => {
 		const date1 = new Date();
@@ -67,12 +67,11 @@ function Main() {
 			fetch(geoURL)
 				.then((res) => res.json())
 				.then((data) => {
-					console.log(data);
+					// console.log(data);
 					// console.log(data.city);
 					// status.textContent = `In ${data.city}, ${data.countryName}`;
 					// document.querySelector('.currentPlace').textContent = `${data.city}`;
-					setCity('In ' + data.city);
-					setcountryCode(data.countryCode);
+					setCity('In ' + data.city + ', ' + data.countryCode);
 				});
 		};
 
@@ -122,9 +121,7 @@ function Main() {
 			</div>
 			<div>
 				{/* place */}
-				<p className="tracking-widest">
-					{city}, {countryCode}
-				</p>
+				<p className="tracking-widest">{city}</p>
 			</div>
 		</div>
 	);

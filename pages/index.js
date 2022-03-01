@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Header from '../components/Header';
 import Main from '../components/Main';
+import More from '../components/More';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
 			<Main />
 			{/* Main */}
 			{/* More */}
+			<More />
 		</div>
 	);
 }
