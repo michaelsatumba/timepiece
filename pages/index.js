@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Header from '../components/Header';
 import Main from '../components/Main';
 import More from '../components/More';
-import styles from '../styles/Home.module.css';
 
 export default function Home() {
 	return (

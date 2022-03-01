@@ -32,6 +32,7 @@ const More = (props) => {
 	// );
 
 	const place = props.place;
+	const weekDay = props.weekDay;
 
 	const [more, setMore] = useState(
 		<svg
@@ -61,7 +62,7 @@ const More = (props) => {
 			</div>
 			<div class="dayWeek">
 				<p>DAY OF THE WEEK</p>
-				<p class="currentDayWeek stats"></p>
+				<p class="currentDayWeek stats">{weekDay}</p>
 			</div>
 			<div class="weekNumber">
 				<p>WEEK NUMBER</p>

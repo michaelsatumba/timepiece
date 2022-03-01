@@ -9,11 +9,15 @@ function Main() {
 	const [city, setCity] = useState('');
 	// const [countryCode, setcountryCode] = useState('');
 	const [place, setPlace] = useState('');
+	const [weekDay, setWeekDay] = useState('');
 
 	const showTime = () => {
 		const date1 = new Date();
 		const hours = date1.getHours();
 		const minutes = date1.getMinutes();
+		const weekDay = date1.getDay();
+
+		setWeekDay(weekDay);
 
 		setHours(hours);
 		if (minutes < 10) {
@@ -128,7 +132,7 @@ function Main() {
 					<p className="tracking-widest">{city}</p>
 				</div>
 			</div>
-			<More place={place} />
+			<More place={place} weekDay={weekDay} />
 		</div>
 	);
 }
