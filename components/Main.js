@@ -12,6 +12,7 @@ function Main() {
 	const [weekDay, setWeekDay] = useState('');
 	const [weekNumber, setWeekNumber] = useState('');
 	const [numberOfDays, setNumberOfDays] = useState('');
+	const [timeZone, setTimeZone] = useState('');
 
 	const showTime = () => {
 		const date1 = new Date();
@@ -26,6 +27,11 @@ function Main() {
 		// console.log(oneJan);
 		// console.log(numberOfDays);
 		// console.log(`The week number is ${weekNumber}`);
+
+		const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+		console.log(timezone); // Asia/Karachi
+
+		setTimeZone(timezone);
 
 		setNumberOfDays(numberOfDays);
 
@@ -94,7 +100,7 @@ function Main() {
 					setCity('In ' + data.city + ', ' + data.countryCode);
 					// setPlace(data.city);
 					// console.log(data.postcode);
-					setPlace(data.postcode);
+					// setPlace(data.postcode);
 				});
 		};
 
@@ -142,7 +148,7 @@ function Main() {
 					</p>
 
 					{/* timezone */}
-					<p>BST</p>
+					{/* <p>BST</p> */}
 				</div>
 				<div>
 					{/* place */}
@@ -150,7 +156,7 @@ function Main() {
 				</div>
 			</div>
 			<More
-				place={place}
+				place={timeZone}
 				weekDay={weekDay}
 				weekNumber={weekNumber}
 				numberOfDays={numberOfDays}

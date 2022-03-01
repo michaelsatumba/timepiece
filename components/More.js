@@ -54,9 +54,9 @@ const More = (props) => {
 	const [showResults, setShowResults] = useState(null);
 	const [word, setWord] = useState('More');
 	const stats = (
-		<div className="text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex flex-col w-screen py-2 px-2 tracking-widest">
+		<div className="text-white text-sm bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex flex-col w-screen py-2 px-2 tracking-widest">
 			<div class="flex justify-between">
-				<p>CURRENT POSTCODE</p>
+				<p>CURRENT TIMEZONE</p>
 				<p class="">{place}</p>
 			</div>
 			<div class="flex justify-between">
