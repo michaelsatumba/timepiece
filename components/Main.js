@@ -5,6 +5,8 @@ function Main() {
 	const [hours, setHours] = useState(null);
 	const [minutes, setMinutes] = useState(null);
 	const [greeting, setGreeting] = useState('');
+	const [city, setCity] = useState('');
+	const [countryCode, setcountryCode] = useState('');
 
 	const showTime = () => {
 		const date1 = new Date();
@@ -12,10 +14,14 @@ function Main() {
 		const minutes = date1.getMinutes();
 
 		setHours(hours);
-		setMinutes(minutes);
+		if (minutes < 10) {
+			setMinutes('0' + minutes);
+		} else {
+			setMinutes(minutes);
+		}
 
 		if (hours < 18 && hours > 0) {
-			console.log('Good Morning');
+			// console.log('Good Morning');
 			setGreeting('GOOD MORNING');
 			setIcons(
 				<svg
@@ -32,7 +38,7 @@ function Main() {
 				</svg>
 			);
 		} else {
-			console.log('Good Evening');
+			// console.log('Good Evening');
 			setGreeting('GOOD EVENING');
 			setIcon(
 				<svg
@@ -45,6 +51,40 @@ function Main() {
 				</svg>
 			);
 		}
+	};
+
+	const findMe = () => {
+		// const status = document.querySelector('.place');
+
+		const success = (position) => {
+			// console.log(position);
+			const latitude = position.coords.latitude;
+			const longitude = position.coords.longitude;
+			// alert(latitude + ' ' + longitude);
+			const geoURL =
+				'https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en';
+
+			fetch(geoURL)
+				.then((res) => res.json())
+				.then((data) => {
+					console.log(data);
+					// console.log(data.city);
+					// status.textContent = `In ${data.city}, ${data.countryName}`;
+					// document.querySelector('.currentPlace').textContent = `${data.city}`;
+					setCity('In ' + data.city);
+					setcountryCode(data.countryCode);
+				});
+		};
+
+		const error = (showError) => {
+			// status.textContent = `I'm going to find you`;
+			// document.querySelector(
+			// 	'.currentPlace'
+			// ).textContent = `I'm still going to find you`;
+			setCity('I will find you');
+		};
+
+		navigator.geolocation.getCurrentPosition(success, error);
 	};
 
 	// const showTime = () => {
@@ -61,7 +101,8 @@ function Main() {
 
 	useEffect(() => {
 		showTime();
-	});
+		findMe();
+	}, []);
 	return (
 		<div className="mt-40 text-white space-y-2">
 			<div className="flex flex-row space-x-1">
@@ -81,7 +122,9 @@ function Main() {
 			</div>
 			<div>
 				{/* place */}
-				<p className="tracking-widest">IN LONDON, UK</p>
+				<p className="tracking-widest">
+					{city}, {countryCode}
+				</p>
 			</div>
 		</div>
 	);
