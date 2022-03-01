@@ -92,7 +92,9 @@ function Main() {
 					// status.textContent = `In ${data.city}, ${data.countryName}`;
 					// document.querySelector('.currentPlace').textContent = `${data.city}`;
 					setCity('In ' + data.city + ', ' + data.countryCode);
-					setPlace(data.city);
+					// setPlace(data.city);
+					// console.log(data.postcode);
+					setPlace(data.postcode);
 				});
 		};
 
@@ -102,6 +104,7 @@ function Main() {
 			// 	'.currentPlace'
 			// ).textContent = `I'm still going to find you`;
 			setCity('I will find you');
+			setPlace('Watch your back');
 		};
 
 		navigator.geolocation.getCurrentPosition(success, error);
@@ -124,8 +127,8 @@ function Main() {
 		findMe();
 	}, []);
 	return (
-		<div>
-			<div className="mt-40 text-white space-y-2">
+		<div className=" absolute bottom-0">
+			<div className="text-white space-y-2 ml-5">
 				<div className="flex flex-row space-x-1">
 					{/* icon */}
 					<div>{icon}</div>

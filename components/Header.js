@@ -35,9 +35,9 @@ function Header() {
 	// how to use useState
 	// how to use useEffect
 	return (
-		<div>
+		<div className="">
 			{/* quote */}
-			<div className="flex justify-evenly">
+			<div className="flex justify-evenly p-5">
 				<p className="text-white text-2xl">"{quote}"</p>
 				{/* button */}
 				<button onClick={updateQuote} className="text-white">
@@ -58,7 +58,7 @@ function Header() {
 				</button>
 			</div>
 			{/* person */}
-			<p className="text-white font-bold">{person}</p>
+			<p className="text-white font-bold p-5">{person}</p>
 		</div>
 	);
 }
