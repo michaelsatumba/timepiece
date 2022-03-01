@@ -10,12 +10,26 @@ function Main() {
 	// const [countryCode, setcountryCode] = useState('');
 	const [place, setPlace] = useState('');
 	const [weekDay, setWeekDay] = useState('');
+	const [weekNumber, setWeekNumber] = useState('');
+	const [numberOfDays, setNumberOfDays] = useState('');
 
 	const showTime = () => {
 		const date1 = new Date();
 		const hours = date1.getHours();
 		const minutes = date1.getMinutes();
 		const weekDay = date1.getDay();
+
+		// number of week
+		const oneJan = new Date(date1.getFullYear(), 0, 1);
+		const numberOfDays = Math.floor((date1 - oneJan) / (24 * 60 * 60 * 1000));
+		const weekNumber = Math.ceil((date1.getDay() + 1 + numberOfDays) / 7);
+		// console.log(oneJan);
+		// console.log(numberOfDays);
+		// console.log(`The week number is ${weekNumber}`);
+
+		setNumberOfDays(numberOfDays);
+
+		setWeekNumber(weekNumber);
 
 		setWeekDay(weekDay);
 
@@ -132,7 +146,12 @@ function Main() {
 					<p className="tracking-widest">{city}</p>
 				</div>
 			</div>
-			<More place={place} weekDay={weekDay} />
+			<More
+				place={place}
+				weekDay={weekDay}
+				weekNumber={weekNumber}
+				numberOfDays={numberOfDays}
+			/>
 		</div>
 	);
 }

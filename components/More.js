@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Main from '../components/Main';
 
 const More = (props) => {
@@ -33,6 +33,8 @@ const More = (props) => {
 
 	const place = props.place;
 	const weekDay = props.weekDay;
+	const weekNumber = props.weekNumber;
+	const numberOfDays = props.numberOfDays;
 
 	const [more, setMore] = useState(
 		<svg
@@ -50,23 +52,24 @@ const More = (props) => {
 	);
 
 	const [showResults, setShowResults] = useState(null);
+	const [word, setWord] = useState('More');
 	const stats = (
-		<div className="text-white">
-			<div class="currentTimezone">
+		<div className="text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex flex-col w-screen py-2 px-2">
+			<div class="flex justify-between">
 				<p>CURRENT TIMEZONE</p>
-				<p class="currentPlace stats">{place}</p>
+				<p class="">{place}</p>
 			</div>
-			<div class="dayYear">
+			<div class="flex justify-between">
 				<p>DAY OF THE YEAR</p>
-				<p class="currentDayYear stats"></p>
+				<p class="">{numberOfDays}</p>
 			</div>
-			<div class="dayWeek">
+			<div class="flex justify-between">
 				<p>DAY OF THE WEEK</p>
-				<p class="currentDayWeek stats">{weekDay}</p>
+				<p class="">{weekDay}</p>
 			</div>
-			<div class="weekNumber">
+			<div class="flex justify-between">
 				<p>WEEK NUMBER</p>
-				<p class="currentWeekNumber stats"></p>
+				<p class="">{weekNumber}</p>
 			</div>
 		</div>
 	);
@@ -103,20 +106,22 @@ const More = (props) => {
 		if (showResults == null) {
 			setShowResults(stats);
 			setMore(upSvg);
+			setWord('Less');
 		} else {
 			setShowResults(null);
 			setMore(downSvg);
+			setWord('More');
 		}
 	};
 
 	return (
-		<div>
+		<div className="absolute bottom-0">
 			<div>
 				<button
 					className="bg-white text-black rounded-full tracking-widest flex p-2"
 					onClick={activate}
 				>
-					More
+					{word}
 					{more}
 				</button>
 			</div>
