@@ -29,7 +29,7 @@ function Main() {
 		// console.log(`The week number is ${weekNumber}`);
 
 		const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-		console.log(timezone); // Asia/Karachi
+		// console.log(timezone); // Asia/Karachi
 
 		setTimeZone(timezone);
 
