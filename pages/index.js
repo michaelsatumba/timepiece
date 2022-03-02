@@ -10,10 +10,10 @@ export default function Home() {
 		const hours = date1.getHours();
 
 		if (hours < 18 && hours > 0) {
-			console.log('Good Morning');
+			// console.log('Good Morning');
 			setIsMorning(true);
 		} else {
-			console.log('Good Evening');
+			// console.log('Good Evening');
 			setIsMorning(false);
 		}
 	};
