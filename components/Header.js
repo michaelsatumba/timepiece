@@ -35,7 +35,7 @@ function Header() {
 	// how to use useState
 	// how to use useEffect
 	return (
-		<div className="">
+		<div>
 			{/* quote */}
 			<div className="flex justify-evenly p-5">
 				<p className="text-white text-2xl">"{quote}"</p>
