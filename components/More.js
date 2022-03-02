@@ -55,21 +55,21 @@ const More = (props) => {
 	const [word, setWord] = useState('More');
 	const stats = (
 		<div className="text-white text-sm bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex flex-col w-screen py-2 px-2 tracking-widest">
-			<div class="flex justify-between">
+			<div className="flex justify-between">
 				<p>CURRENT TIMEZONE</p>
-				<p class="">{place}</p>
+				<p className="">{place}</p>
 			</div>
-			<div class="flex justify-between">
+			<div className="flex justify-between">
 				<p>DAY OF THE YEAR</p>
-				<p class="">{numberOfDays}</p>
+				<p className="">{numberOfDays}</p>
 			</div>
-			<div class="flex justify-between">
+			<div className="flex justify-between">
 				<p>DAY OF THE WEEK</p>
-				<p class="">{weekDay}</p>
+				<p className="">{weekDay}</p>
 			</div>
-			<div class="flex justify-between">
+			<div className="flex justify-between">
 				<p>WEEK NUMBER</p>
-				<p class="">{weekNumber}</p>
+				<p className="">{weekNumber}</p>
 			</div>
 		</div>
 	);
