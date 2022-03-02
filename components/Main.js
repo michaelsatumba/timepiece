@@ -133,7 +133,7 @@ function Main() {
 		findMe();
 	}, []);
 	return (
-		<div className=" absolute bottom-0">
+		<div className="">
 			<div className="text-white space-y-2 ml-5">
 				<div className="flex flex-row space-x-1">
 					{/* icon */}
