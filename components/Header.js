@@ -37,7 +37,8 @@ function Header() {
 	return (
 		<div>
 			{/* quote */}
-			<div className="flex justify-evenly p-5">
+			{/* <div className="flex justify-evenly p-5"> */}
+			<div className="flex p-5">
 				<p className="text-white text-2xl">&quot;{quote}&ldquo;</p>
 				{/* button */}
 				<button onClick={updateQuote} className="text-white">

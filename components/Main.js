@@ -87,8 +87,7 @@ function Main() {
 			const latitude = position.coords.latitude;
 			const longitude = position.coords.longitude;
 			// alert(latitude + ' ' + longitude);
-			const geoURL =
-				'https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en';
+			const geoURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=a53e7014f41f2cd34a0e24f9dc2c5737`;
 
 			fetch(geoURL)
 				.then((res) => res.json())
@@ -97,7 +96,7 @@ function Main() {
 					// console.log(data.city);
 					// status.textContent = `In ${data.city}, ${data.countryName}`;
 					// document.querySelector('.currentPlace').textContent = `${data.city}`;
-					setCity('In ' + data.city + ', ' + data.countryCode);
+					setCity('In ' + data.name + ', ' + data.sys.country);
 					// setPlace(data.city);
 					// console.log(data.postcode);
 					// setPlace(data.postcode);
