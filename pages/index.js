@@ -24,7 +24,7 @@ export default function Home() {
 
 	return (
 		<div
-			className={`w-screen h-screen flex flex-col justify-around ${
+			className={`w-screen h-screen bg-cover flex flex-col justify-around ${
 				isMorning
 					? "bg-[url('https://i.pinimg.com/736x/f7/88/da/f788dad2284dd81a9bbff228edcd9dfa.jpg')]"
 					: "bg-[url('https://i.pinimg.com/originals/a9/7f/1b/a97f1b40e23f5fbbb4915f4ab0119d7a.jpg')]"
